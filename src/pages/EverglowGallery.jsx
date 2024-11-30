@@ -6,7 +6,7 @@ export default function EverglowGallery(){
     return (<div className="w-full mt-28">
         <Container className="bg-primary-light w-full p-6 rounded-xl">
             <div className="flex flex-col gap-8">
-                <TextMedium className="text-white font-bold">Lorem ipsum <span className="text-accent">DOLOR SET AMIT</span></TextMedium>
+                <TextMedium className="text-white font-bold">Lorem ipsum <span className="text-accent">DOLOR SIT AMET</span></TextMedium>
                 <div>
                     <div className="grid grid-cols-12 gap-4">
                         <div className="col-span-12 md:col-span-4">
