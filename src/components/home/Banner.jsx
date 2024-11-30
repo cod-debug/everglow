@@ -24,7 +24,7 @@ export default function Banner(){
                         </div>
                     </div>
                     <div className="flex justify-center items-center order-1 md:order-2">
-                        <FadeInRight>
+                        <FadeInRight className="w-full justify-center flex">
                             <img alt="logo square" src="./web-assets/logo.png" className="w-3/4" />
                         </FadeInRight>
                     </div>
