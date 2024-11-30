@@ -25,7 +25,7 @@ const links = [
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
-    const navLinkClassName = "w-full md:w-fit text-left";
+    const navLinkClassName = "w-full md:w-fit text-left text-center md:text-left";
     const navHolderClassName = "fixed w-full top-0 z-50 px-4 md:px-12";
 
     const handleScroll = () => {
@@ -66,13 +66,13 @@ export default function Header() {
                         </Link>
                         <Navbar.Toggle onClick={handleToggle} className="text-white" />
                     </div>
-                    <Navbar.Collapse className={`w-[100%!important] ${isOpen ? 'block' : 'hidden'}`}>
+                    <Navbar.Collapse className={`w-[100%!important] bg-primary md:bg-transparent ${isOpen ? 'block' : 'hidden'}`}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between w-full gap-12">
                             <Link to="/" className="hidden md:block">
                                 <img src="./web-assets/logo.png" className="mr-3 h-20 sm:h-[82px]" alt="Flowbite React Logo" id="brandImg2" />
                             </Link>
                             <div className="flex items-center gap-10">
-                                <div className="flex flex-col md:flex-row gap-6 sm:gap-12 text-white">
+                                <div className="flex flex-col md:flex-row gap-6 sm:gap-12 text-white w-full">
                                     {
                                         links.map((i) => (
                                             <NavLink key={i.path} to={i.path} className={({ isActive }) => isActive ? navLinkClassName + ' active' : navLinkClassName}>{ i.displayName }</NavLink>
