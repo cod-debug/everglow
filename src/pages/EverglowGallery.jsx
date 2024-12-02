@@ -1,48 +1,59 @@
-import { FadeIn, FadeInLeft, FadeInRight, FadeInUp } from "../components/animations/Animations";
+import { useLoaderData } from "react-router-dom";
+import UploadPostForm from "../components/everglow-gallery/UploadPostForm";
 import Container from "../components/Container";
-import UploadIcon from "../components/Icons/Upload";
-import { TextMedium, TextNormal } from "../components/text/Text";
+import { FadeInUp } from "../components/animations/Animations";
 
+const base_url = import.meta.env.VITE_API_BASE_URL;
 export default function EverglowGallery(){
+    const loaderData = useLoaderData();
+    const posts = loaderData ? JSON.parse(loaderData) : [];
+
     return (
-        <div className="w-full mt-28">
-            <FadeIn>
-                <Container className="bg-primary-light w-full p-6 rounded-xl">
-                    <div className="flex flex-col gap-8">
-                        <FadeInUp>
-                            <TextMedium className="text-white font-bold">Lorem ipsum <span className="text-accent">DOLOR SIT AMET</span></TextMedium>
-                        </FadeInUp>
-                        <div>
-                            <div className="grid grid-cols-12 gap-4">
-                                <div className="col-span-12 md:col-span-4">
-                                    <FadeInLeft>
-                                        <label className="aspect-square border border-dashed border-secondary flex justify-center items-center w-1/2 md:w-full" htmlFor="imageUpload">
-                                                <span className="sr-only">Upload image</span>
-                                                <div className="text-accent">
-                                                    <div className="w-[2rem] md:w-[6rem] mx-auto">
-                                                        <UploadIcon />
-                                                    </div>
-                                                    <TextNormal className="text-center">Click to upload image</TextNormal>
-                                                </div>
-                                            <input type="file" accept="images" className="hidden" id="imageUpload" />
-                                        </label>
-                                    </FadeInLeft>
-                                </div>
-                                <div className="col-span-12 md:col-span-8 flex">
-                                    <FadeInRight className="w-full">
-                                        <textarea className="w-full h-full min-h-40 border border-gray-300 rounded resize-none bg-primary text-white" placeholder="Write something about this picture"></textarea>
-                                    </FadeInRight>
-                                </div>
-                            </div>
-                            <div className="text-right mt-4">
-                                <FadeInUp>
-                                    <button className="bg-accent w-full md:w-1/2 py-2 px-2 rounded-3xl font-bold">UPLOAD</button>
+        <div className="w-full mt-28 mb-12">
+            <UploadPostForm />
+            <div className="posts mt-5">
+                <Container className="px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {
+                        posts.length > 0 && posts.map((post) => {
+                            const image_url = `${base_url}/uploads/${post.image_name}`;
+
+                            return(
+                                <FadeInUp key={post.id}>
+                                    <div className="relative rounded-2xl overflow-hidden aspect-square bg-cover bg-center">
+                                        <div
+                                            className="absolute inset-0"
+                                            style={{
+                                                backgroundImage: `url(${image_url})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                            }}
+                                        ></div>
+                                        <div
+                                            className="absolute inset-0"
+                                            style={{
+                                            backdropFilter: 'blur(10px)',
+                                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                                            }}
+                                        ></div>
+                                        <div className="relative flex items-center h-full">
+                                            <img src={image_url} className="w-full" alt="uploaded" />
+                                        </div>
+                                    </div>
                                 </FadeInUp>
-                            </div>
-                        </div>
-                    </div>
+                            )
+                        })
+                    }
                 </Container>
-            </FadeIn>
+            </div>
         </div>
     )
 }
+
+export async function loader(){
+    const response = await fetch(`${base_url}/api/v1/gallery`);
+    const resData = await response.json();
+
+    if(response.ok){
+        return new Response(JSON.stringify(resData), {status: 200});    
+    }
+} 

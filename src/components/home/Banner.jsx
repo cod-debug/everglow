@@ -4,7 +4,7 @@ import { TextLarge, TextNormal } from "../text/Text";
 export default function Banner(){
     return (
         <div className="">
-            <div className="h-full w-full py-10 flex items-center px-24 text-white bg-cover bg-no-repeat bg-center min-h-[100vh]" 
+            <div className="h-full w-full py-10 flex items-center px-8 md:px-24 text-white bg-cover bg-no-repeat bg-center min-h-[100vh]" 
                 style={
                     {
                         background: 'linear-gradient(to top right, rgba(3, 72, 51, 0.3) 60%, rgba(200, 166, 40, 0.8) 200%), url(/web-assets/images/glow.jpg)',

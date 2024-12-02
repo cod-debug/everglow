@@ -3,7 +3,7 @@ import "react-multi-carousel/lib/styles.css";
 import Home from "./pages/Home";
 import Layout from "./layouts/Layout";
 import { useEffect } from "react";
-import EverglowGallery from "./pages/EverglowGallery";
+import EverglowGallery, { loader as everGlowloader } from "./pages/EverglowGallery";
 import Workshop from "./pages/WorkShop";
 import Sessions from "./pages/Sessions";
 
@@ -30,6 +30,7 @@ const router = createBrowserRouter([
       {
         path: 'gallery',
         element: <EverglowGallery />,
+        loader: everGlowloader,
       },
       {
         path: 'workshop',

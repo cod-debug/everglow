@@ -9,13 +9,13 @@ export default function MoodBoard(){
                 <TextLarge className="mt-2">Tell us how you feel for <span className="bg-gradient-to-tr from-accent to-white font-bold bg-clip-text text-transparent">EVERGLOW</span></TextLarge>
             </FadeInLeft>
             <FadeInLeft>
-                <EmojiSelector day="Day 1" totalVotes={100} />
+                <EmojiSelector day="Day 1" eventDate="2024-12-20" />
             </FadeInLeft>
             <FadeInLeft>
-                <EmojiSelector day="Day 2" totalVotes={100} />
+                <EmojiSelector day="Day 2" eventDate="2024-12-21" />
             </FadeInLeft>
             <FadeInLeft>
-                <EmojiSelector day="Day 3" totalVotes={100} />
+                <EmojiSelector day="Day 3" eventDate="2024-12-22" />
             </FadeInLeft>
         </div>
     )
