@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useRouteLoaderData } from "react-router-dom";
 import { FadeIn, FadeInLeft, FadeInRight, FadeInUp } from "../animations/Animations";
 import Container from "../Container";
 import UploadIcon from "../Icons/Upload";
