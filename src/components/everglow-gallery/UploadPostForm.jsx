@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 let result = "";
 
 export default function UploadPostForm(){
+    const rootLoaderData = useRouteLoaderData('root');
+    const { ip } = JSON.parse(rootLoaderData);
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState();
     const submitButtonClassNames = 'w-full md:w-1/2 py-2 px-2 rounded-2xl font-bold text-white';
@@ -24,6 +26,7 @@ export default function UploadPostForm(){
 
         fd.append('file', uploadedFile.files[0]);
         fd.append('caption', captionTextArea.value);
+        fd.append('ip_address', btoa(ip));
         
         setIsSubmitting(true);
         const base_url = import.meta.env.VITE_API_BASE_URL;

@@ -22,6 +22,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <Layout />,
     id: 'root',
+    loader: loader,
     children: [
       {
         index: true,
@@ -46,4 +47,13 @@ const router = createBrowserRouter([
 
 export default function App() {
   return <RouterProvider router={router} />;
+}
+
+async function loader(){
+  const response = await fetch('https://api.ipify.org?format=json');
+  const resData = await response.json();
+
+  console.log(resData);
+
+  return new Response(JSON.stringify(resData), {status: 200});
 }
