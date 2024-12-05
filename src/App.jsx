@@ -30,6 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'gallery',
+        id: 'gallery',
         element: <EverglowGallery />,
         loader: everGlowloader,
       },

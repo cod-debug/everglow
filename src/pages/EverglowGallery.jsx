@@ -1,25 +1,41 @@
-import { useLoaderData } from "react-router-dom";
+import { Await, json, useRouteLoaderData } from "react-router-dom";
 import UploadPostForm from "../components/everglow-gallery/UploadPostForm";
 import PostsList from "../components/everglow-gallery/PostsList";
+import { Suspense } from "react";
+import Loader from "../components/Loader";
 
 const base_url = import.meta.env.VITE_API_BASE_URL;
 export default function EverglowGallery(){
-    const loaderData = useLoaderData();
-    const posts = loaderData ? JSON.parse(loaderData) : [];
+    const { posts } = useRouteLoaderData('gallery');
 
     return (
         <div className="w-full mt-28 mb-12">
             <UploadPostForm />
-            <PostsList posts={posts} />
+            <Suspense fallback={<div className="flex justify-center"><Loader /></div>}>
+                <Await resolve={posts}>
+                    { (loadedPosts) => <PostsList posts={loadedPosts} /> }
+                </Await>
+            </Suspense>
         </div>
     )
 }
 
-export async function loader(){
+async function loadPosts(){
     const response = await fetch(`${base_url}/api/v1/gallery`);
-    const resData = await response.json();
 
-    if(response.ok){
-        return new Response(JSON.stringify(resData), {status: 200});    
+    if (!response.ok) {
+        throw json(
+            { message: 'Could not fetch events.' },
+            {
+            status: 500,
+            }
+        );
     }
+
+    const resData = await response.json();
+    return resData;
+}
+
+export async function loader(){
+    return { posts: loadPosts() };
 } 

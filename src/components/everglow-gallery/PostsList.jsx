@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { FadeInUp } from "../animations/Animations";
 import Container from "../Container";
 import ViewPostModal from "./ViewPostModal";
