@@ -4,6 +4,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -112,3 +113,48 @@ nav a:hover {
                -6px -6px 12px #162e53;
 }
 .st0{fill-rule:evenodd;clip-rule:evenodd;fill:'currentColor';}
+
+@keyframes sparkle {
+  50% {
+    opacity: 0.4;
+    transform: scale(0.5);
+    box-shadow: 0px 0px 10px 5px white 5e;
+ }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0px 0px 10px 5px #C8A628;
+ }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+    box-shadow: 0px 0px 10px 5px #C8A628 5e;
+ }
+}
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 4s infinite alternate;
+}
+
+.move-up-down {
+  animation: moveUpDown 1s infinite ease-in alternate;
+}
+
+@keyframes moveUpDown{
+  from {
+    transform: translate(0px, 10px);
+  } to {
+    transform: translate(0px, 0px);
+  }
+}
+
+.text-creative {
+  text-shadow: -3px 3px 0px #283F63, 
+  -7px 7px 0px #C8A628, 
+  -11px 11px 0px #122543;
+}

@@ -53,7 +53,5 @@ async function loader(){
   const response = await fetch('https://api.ipify.org?format=json');
   const resData = await response.json();
 
-  console.log(resData);
-
   return new Response(JSON.stringify(resData), {status: 200});
 }
