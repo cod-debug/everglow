@@ -3,6 +3,7 @@ import { CaretDown } from "../components/Icons/Arrow";
 import Sparkle from "../components/workshop/Sparkle";
 
 export default function Workshop(){
+    window.scrollTo(0, 0);
     return (
         <div className="bg-white">
             <div className="overflow-hidden w-full bg-cover h-[100vh] relative" style={{ backgroundImage: "url(./web-assets/images/mountain-bg.avif)" }}>

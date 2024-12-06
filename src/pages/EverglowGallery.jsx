@@ -1,4 +1,4 @@
-import { Await, json, useRouteLoaderData } from "react-router-dom";
+import { Await, useRouteLoaderData } from "react-router-dom";
 import UploadPostForm from "../components/everglow-gallery/UploadPostForm";
 import PostsList from "../components/everglow-gallery/PostsList";
 import { Suspense } from "react";
@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 
 const base_url = import.meta.env.VITE_API_BASE_URL;
 export default function EverglowGallery(){
+    window.scrollTo(0, 0);
     const { posts } = useRouteLoaderData('gallery');
 
     return (
