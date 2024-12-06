@@ -1,5 +1,7 @@
 export default function Sessions(){
     return(
-        <h1>SESSIONS</h1>
+        <div className="min-h-[100vh] w-full flex justify-center items-center">
+            <p className="text-4xl">SESSIONS</p>
+        </div>
     )
 }

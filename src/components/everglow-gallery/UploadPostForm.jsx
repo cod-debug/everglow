@@ -83,13 +83,13 @@ export default function UploadPostForm(){
                 }
                 <div className="flex flex-col gap-8">
                     <FadeInUp>
-                        <TextMedium className="text-white font-bold">Tell us your <span className="text-accent text-glow">EVERGLOW</span> moment</TextMedium>
+                        <TextMedium className="text-white font-bold">Tell us your <span className="text-accent text-script text-4xl">Everglow &nbsp;</span> moment</TextMedium>
                     </FadeInUp>
                     <div>
                         <div className="grid grid-cols-12 gap-4">
                             <div className="col-span-12 md:col-span-4">
                                 <FadeInLeft>
-                                    <label className="aspect-square border border-dashed border-secondary flex justify-center items-center w-1/2 md:w-full rounded-xl" id="imageUploadHolder" htmlFor="imageUpload">
+                                    <label className="cursor-pointer aspect-square border border-dashed border-secondary flex justify-center items-center w-1/2 md:w-full rounded-xl" id="imageUploadHolder" htmlFor="imageUpload">
                                         <span className="sr-only">Upload image</span>
                                         <div className="text-accent" id="imagePlaceholder">
                                             <div className="w-[2rem] md:w-[6rem] mx-auto">
@@ -97,7 +97,7 @@ export default function UploadPostForm(){
                                             </div>
                                             <TextNormal className="text-center">Click to upload image</TextNormal>
                                         </div>
-                                        <input type="file" accept="image/*" className="hidden" id="imageUpload" disabled={setIsSubmitting ? 'disabled' : undefined} onChange={handleUpdatePhoto} />
+                                        <input type="file" accept="image/*" className="hidden" id="imageUpload" disabled={isSubmitting ? 'disabled' : undefined} onChange={handleUpdatePhoto} />
                                     </label>
                                 </FadeInLeft>
                             </div>
@@ -106,7 +106,7 @@ export default function UploadPostForm(){
                                     <textarea className="w-full h-full min-h-40 border border-gray-300 rounded resize-none bg-primary text-white" 
                                         placeholder="Write something about this picture"
                                         id="captionTextArea"
-                                        disabled={setIsSubmitting ? 'disabled' : undefined}
+                                        disabled={isSubmitting ? 'disabled' : undefined}
                                     ></textarea>
                                 </FadeInRight>
                             </div>
