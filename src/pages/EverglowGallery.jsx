@@ -24,12 +24,7 @@ async function loadPosts(){
     const response = await fetch(`${base_url}/api/v1/gallery`);
 
     if (!response.ok) {
-        throw json(
-            { message: 'Could not fetch events.' },
-            {
-            status: 500,
-            }
-        );
+        return { message: 'Could not fetch events.' }
     }
 
     const resData = await response.json();

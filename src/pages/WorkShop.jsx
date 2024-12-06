@@ -12,7 +12,7 @@ export default function Workshop(){
                         <a className="inline-block border border-white text-white p-1 md:p-2 rounded-2xl move-up-down" href="#workshops"><CaretDown size="34" /></a>
                     </div>
                 </div>
-                <div className="text-primary-light w-full bottom-0 left-0 -mt-32 z-30 absolute rotate-180 overflow-hidden" id="workshops">
+                <div className="text-primary-light w-full -bottom-1 left-0 -mt-32 z-30 absolute rotate-180 overflow-hidden" id="workshops">
                     <svg className="scale-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="currentColor"><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path></svg>
                 </div>
                 <Sparkle className="z-40" />

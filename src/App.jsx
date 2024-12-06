@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import EverglowGallery, { loader as everGlowloader } from "./pages/EverglowGallery";
 import Workshop from "./pages/WorkShop";
 import Sessions from "./pages/Sessions";
+import ErrorPage from "./pages/ErrorPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     id: 'root',
     loader: loader,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
