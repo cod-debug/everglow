@@ -37,6 +37,9 @@ export default function EverglowGallery(){
                                         ></div>
                                         <div className="relative flex items-center h-full">
                                             <img src={image_url} className="w-full" alt="uploaded" />
+                                            <div className="absolute text-white bottom-0 left-0 w-full bg-gradient-to-b from-black/0 to-primary/80 py-2 px-4">
+                                                { post.caption }
+                                            </div>
                                         </div>
                                     </div>
                                 </FadeInUp>
