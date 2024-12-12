@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
+import { createHashRouter, RouterProvider, useLocation } from "react-router-dom";
 import "react-multi-carousel/lib/styles.css";
 import Home from "./pages/Home";
 import Layout from "./layouts/Layout";
@@ -18,7 +18,7 @@ function ScrollToTop() {
   return null;
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Layout />,

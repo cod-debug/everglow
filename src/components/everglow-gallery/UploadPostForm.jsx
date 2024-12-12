@@ -14,8 +14,8 @@ export default function UploadPostForm(){
     const rootLoaderData = useRouteLoaderData('root');
     const { ip } = JSON.parse(rootLoaderData);
     const navigate = useNavigate();
-    const [isSubmitting, setIsSubmitting] = useState();
-    const submitButtonClassNames = 'w-full md:w-1/2 py-2 px-2 rounded-2xl font-bold text-white';
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const submitButtonClassNames = 'w-full md:w-1/2 py-2 px-2 rounded-2xl font-bold text-white inline-block';
 
     async function uploadPost(){
         const uploadedFile = document.getElementById('imageUpload');
@@ -113,10 +113,9 @@ export default function UploadPostForm(){
                         </div>
                         <div className="text-right mt-4">
                             <FadeInUp>
-                                <button className={`${submitButtonClassNames} bg-accent`} 
+                                <button className="w-full md:w-1/2 py-2 px-2 rounded-2xl text-[12pt] leading-6 font-bold text-white bg-accent inline-block"
                                     disabled={isSubmitting} 
                                     onClick={uploadPost}
-                                    id="submitBtn"
                                 >
                                     { isSubmitting ? 'SUBMITTING...' : 'UPLOAD'}
                                 </button>
