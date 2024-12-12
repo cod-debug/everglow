@@ -7,6 +7,7 @@ import { useState } from "react";
 import Loader from "../Loader";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Filter } from 'bad-words';
 
 let result = "";
 
@@ -15,17 +16,19 @@ export default function UploadPostForm(){
     const { ip } = JSON.parse(rootLoaderData);
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const submitButtonClassNames = 'w-full md:w-1/2 py-2 px-2 rounded-2xl font-bold text-white inline-block';
+    const filter = new Filter();
 
     async function uploadPost(){
         const uploadedFile = document.getElementById('imageUpload');
         const captionTextArea = document.getElementById('captionTextArea');
         const imagePlaceholder = document.getElementById('imagePlaceholder');
-
+        
+        const caption = captionTextArea.value;
+        
         const fd = new FormData();
 
         fd.append('file', uploadedFile.files[0]);
-        fd.append('caption', captionTextArea.value);
+        fd.append('caption', filter.clean(caption));
         fd.append('ip_address', btoa(ip));
         
         setIsSubmitting(true);
@@ -83,7 +86,7 @@ export default function UploadPostForm(){
                 }
                 <div className="flex flex-col gap-8">
                     <FadeInUp>
-                        <TextMedium className="text-white font-bold">Tell us your <span className="text-accent text-script text-4xl">Everglow &nbsp;</span> moment</TextMedium>
+                        <TextMedium className="text-white font-bold">Tell us your <span className="text-accent text-script text-4xl mx-2">Everglow</span> moment</TextMedium>
                     </FadeInUp>
                     <div>
                         <div className="grid grid-cols-12 gap-4">

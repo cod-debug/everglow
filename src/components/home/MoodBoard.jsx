@@ -245,8 +245,7 @@ export default function MoodBoard(){
                 <div className="relative">
                     <Carousel responsive={responsive} 
                     infinite={true}
-                    autoPlay={true}
-                    className="border border-accent">
+                    autoPlay={true}>
                         {
                             program.map((item, key) => (
                                 <div key={`${item.day}${key}`} className="p-4">

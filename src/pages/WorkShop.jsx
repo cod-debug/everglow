@@ -1,26 +1,23 @@
+import { SmoothScroll } from "../assets/custom";
+import { FadeInLeft, FadeInUp } from "../components/animations/Animations";
 import Container from "../components/Container";
 import { CaretDown } from "../components/Icons/Arrow";
 import Sparkle from "../components/workshop/Sparkle";
 
 export default function Workshop(){
-    function SmoothScroll(eID) {
-        
-        const targetElement = document.querySelector("#"+eID);
-        targetElement.style.scrollMarginTop="90px";
-        
-        if (targetElement) { 
-            targetElement.scrollIntoView({ behavior:"smooth" });
-        }
-    }
     window.scrollTo(0, 0);
     return (
         <div className="bg-white">
             <div className="overflow-hidden w-full bg-cover h-[100vh] relative" style={{ backgroundImage: "linear-gradient(to bottom, #000000BA, #122543DE), url(./web-assets/images/mountain.jpg)" }}>
                 <div className="w-full h-full absolute top-0 left-0 flex justify-center items-center">
                     <div className="text-center">
-                        <p className="text-[3rem] md:text-[5rem] font-bold text-white text-creative scale-x-125">WORKSHOPS</p>
-                        <button className="inline-block border border-white text-white p-1 md:p-2 rounded-2xl move-up-down" 
-                        onClick={() => {SmoothScroll('workshops')}}><CaretDown size="34" /></button>
+                        <FadeInLeft>
+                            <p className="text-[3rem] md:text-[5rem] font-bold text-white text-script text-creative text-scale-x-125 md:scale-x-150 text-glow">Workshops</p>
+                        </FadeInLeft>
+                        <FadeInUp>
+                            <button className="inline-block border border-white text-white p-1 md:p-2 rounded-2xl move-up-down" 
+                            onClick={() => {SmoothScroll('workshops')}}><CaretDown size="34" /></button>
+                        </FadeInUp>
                     </div>
                 </div>
                 <div className="text-primary-light w-full -bottom-1 left-0 -mt-32 z-30 absolute rotate-180 overflow-hidden" id="workshops">
