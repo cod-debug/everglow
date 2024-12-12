@@ -3,14 +3,24 @@ import { CaretDown } from "../components/Icons/Arrow";
 import Sparkle from "../components/workshop/Sparkle";
 
 export default function Workshop(){
+    function SmoothScroll(eID) {
+        
+        const targetElement = document.querySelector("#"+eID);
+        targetElement.style.scrollMarginTop="90px";
+        
+        if (targetElement) { 
+            targetElement.scrollIntoView({ behavior:"smooth" });
+        }
+    }
     window.scrollTo(0, 0);
     return (
         <div className="bg-white">
-            <div className="overflow-hidden w-full bg-cover h-[100vh] relative" style={{ backgroundImage: "url(./web-assets/images/mountain-bg.avif)" }}>
+            <div className="overflow-hidden w-full bg-cover h-[100vh] relative" style={{ backgroundImage: "linear-gradient(to bottom, #000000BA, #122543DE), url(./web-assets/images/mountain.jpg)" }}>
                 <div className="w-full h-full absolute top-0 left-0 flex justify-center items-center">
                     <div className="text-center">
                         <p className="text-[3rem] md:text-[5rem] font-bold text-white text-creative scale-x-125">WORKSHOPS</p>
-                        <a className="inline-block border border-white text-white p-1 md:p-2 rounded-2xl move-up-down" href="#workshops"><CaretDown size="34" /></a>
+                        <button className="inline-block border border-white text-white p-1 md:p-2 rounded-2xl move-up-down" 
+                        onClick={() => {SmoothScroll('workshops')}}><CaretDown size="34" /></button>
                     </div>
                 </div>
                 <div className="text-primary-light w-full -bottom-1 left-0 -mt-32 z-30 absolute rotate-180 overflow-hidden" id="workshops">
@@ -20,26 +30,26 @@ export default function Workshop(){
             </div>
             <div className="min-h-[100vh] bg-primary-light">
                 <Container>
-                    <div className="grid grid-cols-1 md:grid-cols-4 py-8 gap-8">
+                    <div className="grid grid-cols-3 md:grid-cols-4 py-8 gap-8">
                         <div className="neumorphism-primary-light p-4 rounded-2xl">
                             <img src="/web-assets/images/logo-placeholder.avif" alt="Placeholder logo" className="rounded-2xl" />
-                            <p className="text-white text-center text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
+                            <p className="text-white text-center text-sm md:text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
                         </div>
                         <div className="neumorphism-primary-light p-4 rounded-2xl">
                             <img src="/web-assets/images/logo-placeholder.avif" alt="Placeholder logo" className="rounded-2xl" />
-                            <p className="text-white text-center text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
+                            <p className="text-white text-center text-sm md:text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
                         </div>
                         <div className="neumorphism-primary-light p-4 rounded-2xl">
                             <img src="/web-assets/images/logo-placeholder.avif" alt="Placeholder logo" className="rounded-2xl" />
-                            <p className="text-white text-center text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
+                            <p className="text-white text-center text-sm md:text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
                         </div>
                         <div className="neumorphism-primary-light p-4 rounded-2xl">
                             <img src="/web-assets/images/logo-placeholder.avif" alt="Placeholder logo" className="rounded-2xl" />
-                            <p className="text-white text-center text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
+                            <p className="text-white text-center text-sm md:text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
                         </div>
                         <div className="neumorphism-primary-light p-4 rounded-2xl">
                             <img src="/web-assets/images/logo-placeholder.avif" alt="Placeholder logo" className="rounded-2xl" />
-                            <p className="text-white text-center text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
+                            <p className="text-white text-center text-sm md:text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
                         </div>
                     </div>
                 </Container>

@@ -98,7 +98,7 @@ export default function EmojiSelector({day, eventDate:ed}){
 
     return(
         <div className="mt-8">
-            <div className={`max-w-4xl mx-auto bg-gradient-to-r rounded-2xl ${!showEmojis ? 'neumorphism-primary' : 'neumorphism-primary-clicked' }`}>
+            <div className={`bg-gradient-to-r rounded-2xl ${!showEmojis ? 'neumorphism-primary' : 'neumorphism-primary-clicked' }`}>
                 <button className="flex text-lg justify-between items-center text-accent w-full p-8 relative" onClick={toggleMood}>
                     <div className="flex">
                         <TextMedium className="font-bold">{day}</TextMedium>

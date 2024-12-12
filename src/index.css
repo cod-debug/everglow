@@ -7,13 +7,19 @@
   src: url("/web-assets/fonts/MeieScript-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: 'Amoresa';
+  src: url("/web-assets/fonts/Amoresa.ttf") format("truetype");
+}
+
+
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 .text-script {
-  font-family: 'MeieScript'!important;
+  font-family: 'Amoresa'!important;
 }
 
 html {
