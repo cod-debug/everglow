@@ -1,6 +1,6 @@
 export default function SessionTwo(){
     return(
-        <div className="bg-white rounded-sm text-primary shadow-lg p-8">
+        <div className="neumorphism-primary rounded-lg text-white shadow-lg p-8">
             <div className="text-2xl px-4 w-full">
                 Session 2: <strong>EVERGLOW!</strong>
             </div>

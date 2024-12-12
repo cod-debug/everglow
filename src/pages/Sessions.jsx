@@ -7,7 +7,7 @@ import SessionTwo from "../components/sessions/SessionTwo";
 import Sparkle from "../components/workshop/Sparkle";
 
 export default function Sessions(){
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     return(
         <div className="bg-primary text-white">
             <div className="overflow-hidden w-full bg-cover h-[100vh] relative" style={{ backgroundImage: "linear-gradient(to bottom, #000000EA, #122543EA), url(./web-assets/images/session-bg.PNG)" }}>

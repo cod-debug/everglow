@@ -1,6 +1,6 @@
 import { TextLarge } from "../text/Text";
 import EmojiSelector from "./EmojiSelector";
-import { FadeInLeft } from "../animations/Animations";
+import { FadeInLeft, FadeInRight } from "../animations/Animations";
 import Carousel from "react-multi-carousel";
 
 const responsive = {
@@ -243,33 +243,35 @@ export default function MoodBoard(){
                     </FadeInLeft>
                 </div>
                 <div className="relative">
-                    <Carousel responsive={responsive} 
-                    infinite={true}
-                    autoPlay={true}>
-                        {
-                            program.map((item, key) => (
-                                <div key={`${item.day}${key}`} className="p-4">
-                                    <div className="flex h-[500px] p-[1px] w-full bg-primary bg-gradient-to-r from-accent/20 via-accent to-accent/20 rounded-xl">
-                                        <div className="bg-primary-dark p-6 flex flex-col w-full rounded-xl">
-                                            <p className="text-script text-3xl text-accent mt-2">{item.day}</p>
-                                            {
-                                                item.events.map((i, k) => (
-                                                    <div className="grid grid-cols-2 gap-10 mt-2 text-white/80" key={`${i.name}${k}`}>
-                                                        <div className="text-right">
-                                                            { i.time }
+                    <FadeInRight>
+                        <Carousel responsive={responsive} 
+                        infinite={true}
+                        autoPlay={true}>
+                            {
+                                program.map((item, key) => (
+                                    <div key={`${item.day}${key}`} className="p-4">
+                                        <div className="flex h-[500px] p-[1px] w-full bg-primary bg-gradient-to-r from-accent/20 via-accent to-accent/20 rounded-xl">
+                                            <div className="bg-primary-dark p-6 flex flex-col w-full rounded-xl">
+                                                <p className="text-script text-3xl text-accent mt-2">{item.day}</p>
+                                                {
+                                                    item.events.map((i, k) => (
+                                                        <div className="grid grid-cols-2 gap-10 mt-2 text-white/80" key={`${i.name}${k}`}>
+                                                            <div className="text-right">
+                                                                { i.time }
+                                                            </div>
+                                                            <div>
+                                                                { i.name }
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                            { i.name }
-                                                        </div>
-                                                    </div>
-                                                ))
-                                            }
+                                                    ))
+                                                }
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))
-                        }
-                    </Carousel>
+                                ))
+                            }
+                        </Carousel>
+                    </FadeInRight>
                 </div>
             </div>
         </div>
