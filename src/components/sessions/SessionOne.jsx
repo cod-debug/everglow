@@ -13,12 +13,12 @@ export default function SessionOne(){
                 <span className="text-script mr-2 text-4xl">Session 1:</span> <strong>EVER-READY!</strong>
             </div>
             <div className="p-4 text-sm">
-                <p className="indent-10">
+                <p className="indent-4">
                     We are called to celebrate the dynamic and life-giving journey of being part of Youth for Christ, where <strong>fun</strong>, <strong>friendship</strong>, <strong>freedom</strong>, and <strong>faith</strong> bring purpose to the lives of young believers. By embodying these values and embracing the <strong>YFC identities</strong> <i>
                         (Missionary, Model of Excellence, Patriot, Champion of the Poor, 100% Free, Single-minded for God, and Source of Unity in the Family)</i> and <strong>YFC advocacies</strong> <i>(A+ 100% Free, G-Project, and RevUp)</i>, members are equipped to become resilient disciples, unshaken by the challenges of life, and always prepared to respond to God’s call.
                 </p>
                 <br />
-                <p className="indent-10">
+                <p className="indent-4">
                     To be ever-ready is to commit to a life of faith and action, trusting that with God at the center, every member of YFC can truly bring Christ wherever they go, becoming living witnesses of His love and light.
                 </p>
             </div>
