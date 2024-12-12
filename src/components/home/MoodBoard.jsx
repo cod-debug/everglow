@@ -223,11 +223,12 @@ const program = [
 
 export default function MoodBoard(){
     return(
-        <div className="my-12 px-12 text-white">
+        <div className="my-12 px-4 md:px-12 text-white">
             <FadeInLeft>
                 <TextLarge className="mt-2">
                     Tell us how you feel about 
-                    <span className="bg-gradient-to-tr from-accent to-white font-bold bg-clip-text text-transparent text-script pb-2 text-6xl px-4">Everglow</span>
+                    <br />
+                    <span className="bg-gradient-to-tr from-accent to-white font-bold bg-clip-text text-transparent text-script pb-2 text-6xl pt-8 inline-block px-2">Everglow</span>
                 </TextLarge>
             </FadeInLeft>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
