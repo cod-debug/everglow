@@ -251,7 +251,7 @@ export default function MoodBoard(){
                             {
                                 program.map((item, key) => (
                                     <div key={`${item.day}${key}`} className="p-4">
-                                        <div className="flex h-[500px] p-[1px] w-full bg-primary bg-gradient-to-r from-accent/20 via-accent to-accent/20 rounded-xl">
+                                        <div className="flex min-h-[500px] p-[1px] w-full bg-primary bg-gradient-to-r from-accent/20 via-accent to-accent/20 rounded-xl">
                                             <div className="bg-primary-dark p-6 flex flex-col w-full rounded-xl">
                                                 <p className="text-script text-3xl text-accent mt-2">{item.day}</p>
                                                 {
