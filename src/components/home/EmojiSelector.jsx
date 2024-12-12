@@ -3,6 +3,7 @@ import { CaretDown } from "../Icons/Arrow";
 import { TextMedium } from "../text/Text";
 import Loader from "../Loader";
 import { formatNumber } from "../../utils/numbers";
+import { useRouteLoaderData } from "react-router-dom";
 
 const defaultEmojiList = [
     {
@@ -30,18 +31,20 @@ const fixedOrder = ['happy', 'pray', 'wow', 'heart', 'pleading'];
 let totalVotes = 0;
 
 export default function EmojiSelector({day, eventDate:ed}){
+    const rootLoaderData = useRouteLoaderData('root');
+    const { ip } = JSON.parse(rootLoaderData);
     const emojiClassName = "w-14 hover:scale-[1.2] ease-in duration-300 cursor-pointer relative";
     const [selectedEmoji, setSelectedEmoji] = useState();
     const [showEmojis, setShowEmojis] = useState(false);
     const [emojiList, setEmojiList] = useState(defaultEmojiList);
     const [isLoading, setIsLoading] = useState(false);
     const dayCode = day.toLowerCase().replaceAll(' ', '-');
-    // const activateEvent = new Date() === new Date(ed);
+    const activateEvent = new Date() === new Date(ed);
 
     async function getMoodCount(){
         setIsLoading(true);
         const base_url = import.meta.env.VITE_API_BASE_URL;
-        const response = await fetch(`${base_url}/api/v1/moodboard/count?day=${dayCode}`);
+        const response = await fetch(`${base_url}/api/v1/moodboard/count?day=${dayCode}&ip_address=${btoa(ip)}`);
         const resData = await response.json();
 
         if(response.ok){
@@ -67,14 +70,12 @@ export default function EmojiSelector({day, eventDate:ed}){
     }
 
     async function setEmoji(name){
-        // if(!activateEvent){
-        //     return false;
-        // }
         if(selectedEmoji !== name){
             setSelectedEmoji(name);
             let payload = {
                 mood: name,
                 day: dayCode,
+                ip_address: btoa(ip)
             }
             const base_url = import.meta.env.VITE_API_BASE_URL;
             const response = await fetch(`${base_url}/api/v1/moodboard`, {
@@ -88,20 +89,17 @@ export default function EmojiSelector({day, eventDate:ed}){
             
             if(response.ok){
                 // add toast puhon
+                // toast("Successfully saved. Please do not spam.");
             }
             
         }
         getMoodCount();
     }
 
-    useEffect(() => {
-        getMoodCount();
-    }, []);
-
     return(
         <div className="mt-8">
             <div className={`max-w-4xl mx-auto bg-gradient-to-r rounded-2xl ${!showEmojis ? 'neumorphism-primary' : 'neumorphism-primary-clicked' }`}>
-                <button className="flex justify-between items-center text-accent w-full p-8 relative" onClick={toggleMood}>
+                <button className="flex text-lg justify-between items-center text-accent w-full p-8 relative" onClick={toggleMood}>
                     <div className="flex">
                         <TextMedium className="font-bold">{day}</TextMedium>
                     </div>

@@ -1,62 +1,37 @@
-import { useLoaderData } from "react-router-dom";
+import { Await, useRouteLoaderData } from "react-router-dom";
 import UploadPostForm from "../components/everglow-gallery/UploadPostForm";
-import Container from "../components/Container";
-import { FadeInUp } from "../components/animations/Animations";
+import PostsList from "../components/everglow-gallery/PostsList";
+import { Suspense } from "react";
+import Loader from "../components/Loader";
 
 const base_url = import.meta.env.VITE_API_BASE_URL;
 export default function EverglowGallery(){
-    const loaderData = useLoaderData();
-    const posts = loaderData ? JSON.parse(loaderData) : [];
+    window.scrollTo(0, 0);
+    const { posts } = useRouteLoaderData('gallery');
 
     return (
         <div className="w-full mt-28 mb-12">
             <UploadPostForm />
-            <div className="posts mt-5">
-                <Container className="px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {
-                        posts.length > 0 && posts.map((post) => {
-                            const image_url = `${base_url}/uploads/${post.image_name}`;
-
-                            return(
-                                <FadeInUp key={post.id}>
-                                    <div className="relative rounded-2xl overflow-hidden aspect-square bg-cover bg-center">
-                                        <div
-                                            className="absolute inset-0"
-                                            style={{
-                                                backgroundImage: `url(${image_url})`,
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
-                                            }}
-                                        ></div>
-                                        <div
-                                            className="absolute inset-0"
-                                            style={{
-                                            backdropFilter: 'blur(10px)',
-                                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                                            }}
-                                        ></div>
-                                        <div className="relative flex items-center h-full">
-                                            <img src={image_url} className="w-full" alt="uploaded" />
-                                            <div className="absolute text-white bottom-0 left-0 w-full bg-gradient-to-b from-black/0 to-primary/80 py-2 px-4">
-                                                { post.caption }
-                                            </div>
-                                        </div>
-                                    </div>
-                                </FadeInUp>
-                            )
-                        })
-                    }
-                </Container>
-            </div>
+            <Suspense fallback={<div className="flex justify-center"><Loader /></div>}>
+                <Await resolve={posts}>
+                    { (loadedPosts) => <PostsList posts={loadedPosts} /> }
+                </Await>
+            </Suspense>
         </div>
     )
 }
 
-export async function loader(){
+async function loadPosts(){
     const response = await fetch(`${base_url}/api/v1/gallery`);
-    const resData = await response.json();
 
-    if(response.ok){
-        return new Response(JSON.stringify(resData), {status: 200});    
+    if (!response.ok) {
+        return { message: 'Could not fetch events.' }
     }
+
+    const resData = await response.json();
+    return resData;
+}
+
+export async function loader(){
+    return { posts: loadPosts() };
 } 

@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
+import { createHashRouter, RouterProvider, useLocation } from "react-router-dom";
 import "react-multi-carousel/lib/styles.css";
 import Home from "./pages/Home";
 import Layout from "./layouts/Layout";
@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import EverglowGallery, { loader as everGlowloader } from "./pages/EverglowGallery";
 import Workshop from "./pages/WorkShop";
 import Sessions from "./pages/Sessions";
+import ErrorPage from "./pages/ErrorPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -17,11 +18,13 @@ function ScrollToTop() {
   return null;
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Layout />,
     id: 'root',
+    loader: loader,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -29,6 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'gallery',
+        id: 'gallery',
         element: <EverglowGallery />,
         loader: everGlowloader,
       },
@@ -45,5 +49,14 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router}>
+      <ScrollToTop />
+    </RouterProvider>;
+}
+
+async function loader(){
+  const response = await fetch('https://api.ipify.org?format=json');
+  const resData = await response.json();
+
+  return new Response(JSON.stringify(resData), {status: 200});
 }

@@ -6,7 +6,10 @@ export default function MoodBoard(){
     return(
         <div className="my-12 px-12 text-white">
             <FadeInLeft>
-                <TextLarge className="mt-2">Tell us how you feel for <span className="bg-gradient-to-tr from-accent to-white font-bold bg-clip-text text-transparent">EVERGLOW</span></TextLarge>
+                <TextLarge className="mt-2">
+                    Tell us how you feel for 
+                    <span className="bg-gradient-to-tr from-accent to-white font-bold bg-clip-text text-transparent text-script pb-2 text-6xl">Everglow</span>
+                </TextLarge>
             </FadeInLeft>
             <FadeInLeft>
                 <EmojiSelector day="Day 1" eventDate="2024-12-20" />

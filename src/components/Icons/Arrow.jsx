@@ -1,5 +1,5 @@
-export function CaretDown(){
-    return (<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M4.00008 5.16663L8.00008 9.16663L12.0001 5.16663L13.3334 6.49996L8.00008 11.8333L2.66675 6.49996L4.00008 5.16663Z" fill="currentColor"/></svg>)
+export function CaretDown({size = 17}){
+    return (<svg width={size} height={size} viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M4.00008 5.16663L8.00008 9.16663L12.0001 5.16663L13.3334 6.49996L8.00008 11.8333L2.66675 6.49996L4.00008 5.16663Z" fill="currentColor"/></svg>)
 }
 
 export function CaretRight(){
