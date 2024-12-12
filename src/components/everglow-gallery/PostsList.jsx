@@ -32,6 +32,7 @@ export default function PostsList({ posts }){
                                                     hover:text-accent
                                                     w-full
                                                     transition-all ease-in duration-200
+                                                    text-[12pt]
                                                     line-clamp-2 leading-tight"
                                             dangerouslySetInnerHTML={{ __html: post.caption.replaceAll("\n", "<br />") }}
                                             title="See more..."
