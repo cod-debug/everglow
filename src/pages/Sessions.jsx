@@ -25,7 +25,7 @@ export default function Sessions(){
                 <Sparkle className="z-40" />
             </div>
             <div id="sessions">
-                <Container className="p-8 flex flex-col gap-8">
+                <Container className="px-2 py-8 md:p-8 flex flex-col gap-8">
                     <FadeInUp>
                         <SessionOne />
                     </FadeInUp>
