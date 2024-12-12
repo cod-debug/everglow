@@ -4,7 +4,6 @@ import { TextMedium } from "../text/Text";
 import Loader from "../Loader";
 import { formatNumber } from "../../utils/numbers";
 import { useRouteLoaderData } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 
 const defaultEmojiList = [
     {
@@ -40,7 +39,7 @@ export default function EmojiSelector({day, eventDate:ed}){
     const [emojiList, setEmojiList] = useState(defaultEmojiList);
     const [isLoading, setIsLoading] = useState(false);
     const dayCode = day.toLowerCase().replaceAll(' ', '-');
-    // const activateEvent = new Date() === new Date(ed);
+    const activateEvent = new Date() === new Date(ed);
 
     async function getMoodCount(){
         setIsLoading(true);
@@ -90,7 +89,7 @@ export default function EmojiSelector({day, eventDate:ed}){
             
             if(response.ok){
                 // add toast puhon
-                toast("Successfully saved. Please do not spam.");
+                // toast("Successfully saved. Please do not spam.");
             }
             
         }
@@ -99,7 +98,6 @@ export default function EmojiSelector({day, eventDate:ed}){
 
     return(
         <div className="mt-8">
-            <ToastContainer />
             <div className={`max-w-4xl mx-auto bg-gradient-to-r rounded-2xl ${!showEmojis ? 'neumorphism-primary' : 'neumorphism-primary-clicked' }`}>
                 <button className="flex text-lg justify-between items-center text-accent w-full p-8 relative" onClick={toggleMood}>
                     <div className="flex">
