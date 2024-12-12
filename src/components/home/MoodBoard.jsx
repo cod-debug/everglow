@@ -256,7 +256,7 @@ export default function MoodBoard(){
                                                 <p className="text-script text-3xl text-accent mt-2">{item.day}</p>
                                                 {
                                                     item.events.map((i, k) => (
-                                                        <div className="grid grid-cols-2 gap-10 mt-2 text-white/80" key={`${i.name}${k}`}>
+                                                        <div className="grid grid-cols-2 gap-10 mt-2 text-white/80 text-[10pt] md:text-[11pt]" key={`${i.name}${k}`}>
                                                             <div className="text-right">
                                                                 { i.time }
                                                             </div>
