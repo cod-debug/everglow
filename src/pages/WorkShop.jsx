@@ -27,7 +27,7 @@ export default function Workshop(){
             </div>
             <div className="min-h-[100vh] bg-primary-light">
                 <Container>
-                    <div className="grid grid-cols-3 md:grid-cols-4 py-8 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 py-8 gap-8">
                         <div className="neumorphism-primary-light p-4 rounded-2xl">
                             <img src="/web-assets/images/logo-placeholder.avif" alt="Placeholder logo" className="rounded-2xl" />
                             <p className="text-white text-center text-sm md:text-2xl p-2 font-bold scale-x-125">Workshop Title</p>
