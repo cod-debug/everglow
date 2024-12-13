@@ -24,7 +24,7 @@ export default function PostsList({ posts }){
 
                             return(
                                 <FadeInUp key={post.id}>
-                                    <button className="relative rounded-2xl overflow-hidden aspect-square bg-cover bg-center" 
+                                    <button className="relative rounded overflow-hidden aspect-square bg-cover bg-center" 
                                             onClick={() => { handleShowFullDetails({...post, image_url}) }}>
                                         <div
                                             className="absolute bottom-0 px-2 z-40
