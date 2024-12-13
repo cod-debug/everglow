@@ -24,8 +24,9 @@ export default function PostsList({ posts }){
 
                             return(
                                 <FadeInUp key={post.id}>
-                                    <div className="relative rounded-2xl overflow-hidden aspect-square bg-cover bg-center ">
-                                        <button
+                                    <button className="relative rounded-2xl overflow-hidden aspect-square bg-cover bg-center" 
+                                            onClick={() => { handleShowFullDetails({...post, image_url}) }}>
+                                        <div
                                             className="absolute bottom-0 px-2 z-40
                                                     bg-gradient-to-t from-black/80 to-black/0
                                                     py-1 text-white text-left
@@ -36,8 +37,7 @@ export default function PostsList({ posts }){
                                                     line-clamp-2 leading-tight"
                                             dangerouslySetInnerHTML={{ __html: post.caption.replaceAll("\n", "<br />") }}
                                             title="See more..."
-                                            onClick={() => { handleShowFullDetails({...post, image_url}) }}
-                                        ></button>
+                                        ></div>
                                         <div
                                             className="absolute inset-0"
                                             style={{
@@ -56,7 +56,7 @@ export default function PostsList({ posts }){
                                         <div className="relative flex items-center h-full">
                                             <img src={image_url} className="w-full" alt="uploaded" />
                                         </div>
-                                    </div>
+                                    </button>
                                 </FadeInUp>
                             )
                         })
